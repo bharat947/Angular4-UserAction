@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div>
+<h3 style="height: 50px; width: 100%; background-color: #4682B4;"><span style="color: white; font-family: cursive;align-self: center; margin-left: 40%;">Add User Portal</span></h3></div>
+<div style="background-color:lightblue;">
+
+
+<h3 *ngIf="articleIdToUpdate; else create"> 
+   Update user for Id: {{articleIdToUpdate}}
+</h3>
+
+<div style="background-color:black; margin-left: 10px;margin-right: 10px; margin-top: 0px; ">
+<section class="section-appointment" >
+
+        <div class="container wow fadeInUp">
+
+            <div class="row">
+
+                  <div class="col-lg-6 col-md-6 hidden-sm hidden-xs"> 
+                      <br><br><br>
+                    <figure class="loginImg">
+                        <img src="../assets/images/login3.gif" alt="Login Image">
+                    </figure>
+                </div>
+
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> 
+
+                    <div class="appointment-form-wrapper text-center clearfix">
+                        <h3 class="join-heading">ADD NEW USER</h3>
+                       
+                      <form id="formNewUser" name="formNewUser" #userData = "ngForm" (ngSubmit) = "addNewUser(userData.value)">
+                      	 <table class="table">
+    <tr><td>Enter Your Name</td><td><input type="text" name="name" id="name" class="form-control" ngModel>
+           
+    </td></tr>
+     <tr><td>Enter Your Email</td><td><input type="email" name="email" id="email" class="form-control" ngModel>
+           
+    </td></tr>
+    <tr><td>Enter Your Mobile</td><td><input type="text" name="mobile" id="mobile" class="form-control" ngModel>
+           
+    </td></tr>
+     <tr><td>Enter Your Role</td><td><input type="text" name="role" id="role" class="form-control" ngModel>
+           
+    </td></tr>
+     <tr><td>Enter Your Address</td><td><input type="text" name="address" id="address" class="form-control" ngModel>
+           
+    </td></tr>
+     <tr><td colspan="2">
+        <button  class="btn btn-primary">Registration</button>  
+        
+    </td></tr>
+    <p style="color: green;" *ngIf = "isAdded">{{successMsg}}   <a  [routerLink]="['/login']">Login Here</a> </p>
+</table>
+</form>
+
+
+
+                    </div> 
+
+                </div> 
+
+            </div> 
+
+        </div> 
+
+    </section>  
+</div>
+</div>
+
+
+
+
+
+
+

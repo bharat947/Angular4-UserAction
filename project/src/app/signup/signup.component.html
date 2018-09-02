@@ -1,0 +1,122 @@
+<app-indexheader></app-indexheader>
+<div>
+<h3 style="height: 50px; width: 100%; background-color: #4682B4;"><span style="color: white; font-family: cursive;align-self: center; margin-left: 40%;">User  Registration Portal</span></h3></div>
+<div style="background-color:lightblue;">
+
+
+<h3 *ngIf="articleIdToUpdate; else create"> 
+   Update user for Id: {{articleIdToUpdate}}
+</h3>
+
+<div style="background-color:black; margin-left: 10px;margin-right: 10px; margin-top: 0px; ">
+<section class="section-appointment" >
+
+        <div class="container wow fadeInUp">
+
+            <div class="row">
+
+                  <div class="col-lg-6 col-md-6 hidden-sm hidden-xs"> 
+                      <br><br><br>
+                    <figure class="loginImg">
+                        <img src="../assets/images/login3.gif" alt="Login Image">
+                    </figure>
+                </div>
+
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> 
+
+                    <div class="appointment-form-wrapper text-center clearfix">
+                        <h3 class="join-heading">REGISTRAION PORTAL</h3>
+                       
+                      <form id="formNewUser" name="formNewUser" #userData = "ngForm" (ngSubmit) = "addNewUser(userData.value)">
+     <div class="form-group col-md-12">                 	
+    <input type="text" name="name" id="name" placeholder="Enter Your Name*" class="form-control" ngModel required   #nameUser="ngModel" pattern="^[a-zA-Z]+(\s[a-zA-Z]+)?$">
+      <div *ngIf="nameUser.touched"class="alert alert-danger">
+          <div *ngIf="nameUser.errors?.required">
+      Name is required
+    </div> 
+        <div *ngIf="nameUser.errors?.pattern">
+      Invalid Name
+    </div> 
+     </div>
+   </div>
+      
+    <div class="form-group col-md-12">
+      <input type="email" name="email" id="email" placeholder="Enter your Email*" class="form-control" ngModel required #emailUser="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+         <div *ngIf="emailUser.touched"class="alert alert-danger">
+          <div *ngIf="emailUser.errors?.required">
+      Email is required
+    </div>  
+    <div *ngIf="emailUser.errors?.pattern">
+       Invalid Email
+    </div> 
+    
+    </div> 
+       </div>
+       
+    <div class="form-group col-md-12">
+    <input type="text" name="mobile" id="mobile" placeholder="Enter your Mobile no*" class="form-control" ngModel required #mobileUser="ngModel" pattern="[0-9]*">
+        <div *ngIf="mobileUser.touched"class="alert alert-danger">
+          <div *ngIf="mobileUser.errors?.required">
+      Mobile Number is required
+    </div> 
+      <div *ngIf="mobileUser.errors?.pattern">
+      invalid Mobile
+    </div> 
+
+    
+    </div> 
+      </div>
+        
+      <div class="form-group col-md-12">     
+   <input type="text" name="role" id="role" placeholder="Enter your Role*" class="form-control" ngModel required #roleUser="ngModel" pattern="^[a-zA-Z]+(\s[a-zA-Z]+)?$">
+      <div *ngIf="roleUser.touched"class="alert alert-danger">
+          <div *ngIf="roleUser.errors?.required">
+      User Role is required
+    </div> 
+      <div *ngIf="roleUser.errors?.pattern">
+      Invalid Role
+    </div>  
+    </div> 
+     </div>  
+         
+     <div class="form-group col-md-12">    
+   <textarea name="address" id="address" placeholder="Enter Your Address*" rows="4" class="form-control" ngModel required #addressUser="ngModel" pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$"></textarea> 
+     <div *ngIf="addressUser.touched"class="alert alert-danger" data-auto-dismiss="2000">
+          <div *ngIf="addressUser.errors?.required" data-auto-dismiss="2000">
+      Your Address is required
+    </div>  
+      <div *ngIf="addressUser.errors?.pattern">
+      Invalid Address
+    </div> 
+    </div>
+    </div>
+        
+    <div class="form-group col-md-12">
+        <button  class="btn btn-primary" [disabled]="userData.invalid">Registration</button>  
+        </div>
+   
+    <p style="color: green;" *ngIf = "isAdded">{{successMsg}}   <a  [routerLink]="['/login']">Login Here</a> </p>
+
+</form>
+
+
+
+                    </div> 
+
+                </div> 
+
+            </div> 
+
+        </div> 
+
+    </section>  
+</div>
+</div>
+
+
+
+
+
+
+
